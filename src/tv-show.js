@@ -12,4 +12,13 @@ export class TVShowAPI {
     //Return
     return fake_populars;
   }
+
+  static async fetchRecommendations(tvShowId) {
+    const response = await axios.get(
+      `${Base_url}tv/${tvShowId}/recommendations${api_key_param}`
+    );
+    console.log(response.data.results);
+    return response.data.results;
+    //Return
+  }
 }

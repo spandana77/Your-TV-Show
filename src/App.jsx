@@ -4,20 +4,55 @@ import { backdrop_base_url } from "./config";
 import style from "./style.module.css";
 import { TVShowAPI } from "./tv-show";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
+import { Logo } from "./components/Logo/Logo";
+import logoImg from "./assets/images/logo.png";
+import { TVShowList } from "./components/TVShowList/TVShowList";
+import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
+
 export function App() {
   const [currentTVShow, setcurrentTVShow] = useState();
+  const [recommendationList, setRecommendationList] = useState([]);
 
   async function fetchPopular() {
     const popularTVShowList = await TVShowAPI.fetchPopular();
+    // console.log(popularTVShowList);
     if (popularTVShowList.length > 0) {
       setcurrentTVShow(popularTVShowList[0]);
     }
   }
+  //   async function fetchRecommendations(tvShowId) {
+  //     try {
+  //       const recommendationListResp = await TVShowAPI.fetchRecommendations(
+  //         tvShowId
+  //       );
+  //       if (recommendationListResp && recommendationListResp.length > 0) {
+  //         setRecommendationList(recommendationListResp.slice(0, 10));
+  //       }
+  //     } catch (error) {
+  //       console.log("Error fetching recommendations", error);
+  //     }
+  //   }
+  async function fetchRecommendations(tvShowId) {
+    const recommendationListResp = await TVShowAPI.fetchRecommendations(
+      tvShowId
+    );
+    if (recommendationListResp && recommendationListResp.length > 0) {
+      setRecommendationList(recommendationListResp.slice(0, 10));
+    }
+  }
+
   useEffect(() => {
     fetchPopular();
   }, []);
 
-  console.log(currentTVShow);
+  useEffect(() => {
+    if (currentTVShow) {
+      fetchRecommendations(currentTVShow.id);
+    }
+  }, [currentTVShow]);
+  console.log(recommendationList);
+
+  //console.log(currentTVShow);
   return (
     <div
       className={style.main_container}
@@ -31,7 +66,13 @@ export function App() {
       <div className={style.header}>
         <div className="row">
           <div className="col-4">
-            <div>LOGO</div>
+            <div>
+              <Logo
+                img={logoImg}
+                title={"watowatch"}
+                subtitle={"Find a show you may like"}
+              />
+            </div>
             <div>Subtitle</div>
           </div>
           <div className="col-md-12 col-lg-4">
@@ -43,7 +84,9 @@ export function App() {
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
 
-      <div className={style.recommended_tv_shows}>Recommended TV shows</div>
+      <div className={style.recommended_tv_shows}>
+        {currentTVShow && <TVShowList tvShowList={recommendationList} />}
+      </div>
     </div>
   );
 }
