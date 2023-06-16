@@ -18,7 +18,7 @@ export function SearchBar({ onSubmit }) {
   }
   return (
     <>
-      <SearchIcon size={27} className={style.icon} />
+      <SearchIcon size={20} className={style.icon} />
       <input
         onKeyUp={submit}
         onChange={handleChange}

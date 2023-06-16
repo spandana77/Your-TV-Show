@@ -92,11 +92,11 @@ export function App() {
             <div>
               <Logo
                 img={logoImg}
-                title={"watowatch"}
+                title={"ZoroTV"}
                 subtitle={"Find a show you may like"}
               />
             </div>
-            <div>Subtitle</div>
+            {/* <div>Subtitle</div> */}
           </div>
           <div className="col-md-12 col-lg-4">
             {/* <input style={{ width: "100%" }} type="text" /> */}
