@@ -5,12 +5,10 @@ import { Base_url, api_key_param } from "./config";
 
 export class TVShowAPI {
   static async fetchPopular() {
-    //Request
-    // const response = await axios.get(`${Base_url}tv/popular${api_key_param}`);
-    // console.log(response.data.results);
-    //  return response.data.results;
-    //Return
-    return fake_populars;
+    const response = await axios.get(`${Base_url}tv/popular${api_key_param}`);
+    console.log(response.data.results);
+    return response.data.results;
+    //return fake_populars;
   }
 
   static async fetchRecommendations(tvShowId) {
@@ -19,6 +17,13 @@ export class TVShowAPI {
     );
     console.log(response.data.results);
     return response.data.results;
-    //Return
+  }
+
+  static async fetchByTitle(title) {
+    const response = await axios.get(
+      `${Base_url}search/tv${api_key_param}&query=${title}`
+    );
+    // console.log(response.data.results);
+    return response.data.results;
   }
 }

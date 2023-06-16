@@ -3,3 +3,12 @@ body {
     font-family: Maximum Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
 }
+
+::-webkit-scrollbar {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(0, 0, 0, 0.61);
+    border-radius: 10px;
+}
