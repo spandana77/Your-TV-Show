@@ -99,7 +99,6 @@ export function App() {
             {/* <div>Subtitle</div> */}
           </div>
           <div className="col-md-12 col-lg-4">
-            {/* <input style={{ width: "100%" }} type="text" /> */}
             <SearchBar onSubmit={fetchByTitle} />
           </div>
         </div>
