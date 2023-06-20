@@ -7,7 +7,7 @@ import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
 import { TVShowList } from "./components/TVShowList/TVShowList";
-//import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
+// import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 
 export function App() {
