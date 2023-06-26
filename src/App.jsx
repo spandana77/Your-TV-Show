@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { backdrop_base_url } from "./config";
-import style from "./style.module.css";
-import { TVShowAPI } from "./tv-show";
+import { BACKDROP_BASE_URL } from "./api/api";
+import style from "./css/style.module.css";
+import { TVShowAPI } from "./api/tvShow";
 import { TVShowDetail } from "./components/TVShowDetail/TVShowDetail";
 import { Logo } from "./components/Logo/Logo";
 import logoImg from "./assets/images/logo.png";
@@ -10,6 +10,7 @@ import { TVShowList } from "./components/TVShowList/TVShowList";
 // import { TVShowListItem } from "./components/TVShowListItem/TVShowListItem";
 import { SearchBar } from "./components/SearchBar/SearchBar";
 
+console.log(process.env.ENV, "test");
 export function App() {
   const [currentTVShow, setcurrentTVShow] = useState();
   const [recommendationList, setRecommendationList] = useState([]);
@@ -82,7 +83,7 @@ export function App() {
       style={{
         background: currentTVShow
           ? `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
-    url("${backdrop_base_url}${currentTVShow.backdrop_path}") no-repeat center / cover`
+    url("${BACKDROP_BASE_URL}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
       }}
     >
@@ -92,13 +93,14 @@ export function App() {
             <div>
               <Logo
                 img={logoImg}
-                title={"ZoroTV"}
+                title={"watowatch"}
                 subtitle={"Find a show you may like"}
               />
             </div>
-            {/* <div>Subtitle</div> */}
+            <div>Subtitle</div>
           </div>
           <div className="col-md-12 col-lg-4">
+            {/* <input style={{ width: "100%" }} type="text" /> */}
             <SearchBar onSubmit={fetchByTitle} />
           </div>
         </div>

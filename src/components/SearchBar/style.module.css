@@ -1,6 +1,7 @@
 .icon {
     position: absolute;
     margin-left: 15px;
+
     margin-top: 7px;
 }
 
@@ -13,7 +14,7 @@
 
     height: 30px;
     color: white;
-    /* font-weight: 100; */
+    font-weight: 100;
     font-size: 20px;
     width: 100%;
     border-color: transparent;
@@ -22,7 +23,6 @@
 
 input::placeholder {
     color: rgb(194, 194, 194);
-    padding-left: 40px;
 
 }
 

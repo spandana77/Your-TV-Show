@@ -9,7 +9,7 @@
 
 .rating {
     margin-top: 3px;
-    margin-left: 5px;
+    margin-left: 5pxn;
 }
 
 .overview :hover {
@@ -17,9 +17,7 @@
 }
 
 .overview {
-    /* font-family: Roboto;
-     */
-    font-family: serif;
+    font-family: Roboto;
     font-weight: 400;
     font-size: 20px;
     height: 120px;
