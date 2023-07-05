@@ -1,4 +1,4 @@
-import style from "./style.module.css";
+import style from "./style.module.scss";
 import { Search as SearchIcon } from "react-bootstrap-icons";
 import { useState } from "react";
 

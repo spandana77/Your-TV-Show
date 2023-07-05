@@ -1,7 +1,8 @@
-import { TVShowListItem } from "../TVShowListItem/TVShowListItem";
-import style from "./style.module.css";
+import React from "react";
+import { TVShowListItem } from "../TvShowListItem/TvShowListItem";
+import style from "./style.module.scss";
 
-export function TVShowList({ tvShowList, onClickItem }) {
+export function TvShowList({ tvShowList, onClickItem }) {
   return (
     <div>
       <div className={style.title}>You'll probably like:</div>
@@ -9,13 +10,7 @@ export function TVShowList({ tvShowList, onClickItem }) {
         {tvShowList.map((tvShow) => {
           return (
             <span className={style.tv_show_item} key={tvShow.id}>
-              <TVShowListItem
-                tvShow={tvShow}
-                onClick={
-                  onClickItem
-                  //=> console.log("recommended one")
-                }
-              />
+              <TVShowListItem tvShow={tvShow} onClick={onClickItem} />
             </span>
           );
         })}
